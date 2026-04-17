@@ -1,0 +1,128 @@
+@font-face {
+  font-family: "F1-Regular";
+  src: url("Formula1-Regular.ttf") format("truetype");
+  size-adjust: 69%;
+}
+
+h2,
+p,
+textarea,
+label {
+  font-family: "F1-Regular", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  /* High-energy deep space gradient */
+  background: radial-gradient(circle at top left, #2e026d, #15162c);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Glassmorphism Wrapper */
+.glass-wrapper {
+  position: relative;
+  padding: 20px;
+}
+
+/* Background decorative blobs for movement */
+.glass-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #ff007a;
+  filter: blur(80px);
+  top: -50px;
+  left: -50px;
+  z-index: -1;
+  animation: pulse 8s infinite alternate;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Shimmer Title Effect */
+.shimmer {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.shimmer span {
+  color: #00f2ff;
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+}
+
+label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+textarea {
+  height: 123px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 34px;
+  color: #fff;
+  font-size: 1.1rem;
+  resize: none;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.375);
+
+}
+#morseInput {
+  background: rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 34px;
+  color: #00f2ff;
+  font-size: 0.965rem;
+  font-family: "Consolas", monospace;
+  resize: none;
+}
+
+textarea:focus {
+  outline:auto;
+  border-color: #00f2ff;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+  transform: scale(1.04);
+}
+
+#morseInput {
+
+  color: #00f2ff;
+  letter-spacing: 0px;
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
