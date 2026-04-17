@@ -1,2 +1,2 @@
 # Morse-ViceVersa
-My First Repositpy!
+My First Project!
