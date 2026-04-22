@@ -3,6 +3,40 @@
   src: url("Formula1-Regular.ttf") format("truetype");
   size-adjust: 69%;
 }
+/* This class will be toggled by JavaScript */
+.transmitting {
+    border-color: #FF1801 !important; /* F1 Red */
+    box-shadow: 0 0 20px rgba(255, 24, 1, 0.4);
+    transform: scale(1.01); /* Subtle grow effect */
+    transition: all 0.1s ease; /* Very fast snap */
+}
+#englishInput {
+    transition: letter-spacing 0.2s ease-out;
+}
+
+#englishInput:focus {
+    letter-spacing: 1px;
+}
+#morseInput {
+    /* Transitions the text color and the shadow */
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    color: #FFD600; /* Starting color */
+}
+
+/* We create a state that looks like the data is "Hot" */
+.streaming-text {
+    color: #ffffff !important; 
+    text-shadow: 0 0 10px #FF1801, 0 0 20px #FF1801;
+}
+@keyframes signalFlow {
+    0% { border-color: #282829; }
+    50% { border-color: #444; }
+    100% { border-color: #282829; }
+}
+/* Base state for smooth return */
+textarea {
+    transition: all 0.4s ease;
+}
 
 h2,
 p,
@@ -126,3 +160,27 @@ textarea:focus {
   margin-top: 20px;
 }
 
+/* --- MOBILE OPTIMIZATION --- */
+@media screen and (max-width: 480px) {
+  .container {
+    width: 95%;     
+    padding: 20px; 
+    border-radius: 15px; 
+  }
+
+  .shimmer {
+    font-size: 1.8rem; 
+    margin-bottom: 20px;
+  }
+
+  textarea {
+    height: 140px;   
+    font-size: 1rem; 
+    padding: 15px;
+  }
+
+  #morseInput {
+    font-size: 1.2rem; 
+    letter-spacing: 3px;
+  }
+}
