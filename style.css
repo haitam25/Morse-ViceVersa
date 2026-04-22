@@ -1,84 +1,22 @@
 @font-face {
   font-family: "F1-Regular";
   src: url("Formula1-Regular.ttf") format("truetype");
-  size-adjust: 69%;
-}
-/* This class will be toggled by JavaScript */
-.transmitting {
-    border-color: #FF1801 !important; /* F1 Red */
-    box-shadow: 0 0 20px rgba(255, 24, 1, 0.4);
-    transform: scale(1.01); /* Subtle grow effect */
-    transition: all 0.1s ease; /* Very fast snap */
-}
-#englishInput {
-    transition: letter-spacing 0.2s ease-out;
 }
 
-#englishInput:focus {
-    letter-spacing: 1px;
-}
-#morseInput {
-    /* Transitions the text color and the shadow */
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-    color: #FFD600; /* Starting color */
-}
-
-/* We create a state that looks like the data is "Hot" */
-.streaming-text {
-    color: #ffffff !important; 
-    text-shadow: 0 0 10px #FF1801, 0 0 20px #FF1801;
-}
-@keyframes signalFlow {
-    0% { border-color: #282829; }
-    50% { border-color: #444; }
-    100% { border-color: #282829; }
-}
-/* Base state for smooth return */
-textarea {
-    transition: all 0.4s ease;
-}
-
-h2,
-p,
-textarea,
-label {
-  font-family: "F1-Regular", sans-serif;
-}
 * {
   box-sizing: border-box;
-  margin: 0;
+  margin: 10;
   padding: 0;
 }
 
 body {
-  font-family: "Outfit", sans-serif;
-  /* High-energy deep space gradient */
+  font-family: sans-serif;
   background: radial-gradient(circle at top left, #2e026d, #15162c);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-}
-
-/* Glassmorphism Wrapper */
-.glass-wrapper {
-  position: relative;
-  padding: 20px;
-}
-
-/* Background decorative blobs for movement */
-.glass-wrapper::before {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: #ff007a;
-  filter: blur(80px);
-  top: -50px;
-  left: -50px;
-  z-index: -1;
-  animation: pulse 8s infinite alternate;
+  overflow-x: hidden;
 }
 
 .container {
@@ -87,29 +25,29 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
-  padding: 40px;
-  width: 100%;
+  padding: 30px;
+  width: 90%; /* Responsive width */
   max-width: 500px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
 
-/* Shimmer Title Effect */
-.shimmer {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: white;
-  text-align: center;
-  margin-bottom: 30px;
+h2, label, p, #englishInput {
+  font-family: "F1-Regular", sans-serif;
 }
 
-.shimmer span {
-  color: #00f2ff;
-  text-shadow: 0 0 15px rgba(0, 242, 255, 0.5);
+.shimmer {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 25px;
+  text-transform: uppercase;
 }
+
+.shimmer span { color: #00f2ff; }
 
 label {
   color: rgba(255, 255, 255, 0.6);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 8px;
@@ -117,70 +55,57 @@ label {
 }
 
 textarea {
-  height: 123px;
-  background: rgba(0, 0, 0, 0.2);
+  width: 90%;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.3);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
-  padding: 34px;
+  padding: 15px;
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   resize: none;
-  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.375);
-
+  transition: all 0.3s ease;
 }
+
+/* MORSE BOX: Monospace for readability */
 #morseInput {
-  background: rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 34px;
-  color: #00f2ff;
-  font-size: 0.965rem;
-  font-family: "Consolas", monospace;
-  resize: none;
+  font-family: "Courier New", Courier, monospace;
+  color: #FFD600; 
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
 }
 
 textarea:focus {
-  outline:auto;
+  outline: none;
   border-color: #00f2ff;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
-#morseInput {
+/* Animations */
+.transmitting {
+    border-color: #FF1801 !important;
+    box-shadow: 0 0 15px rgba(255, 24, 1, 0.4);
+}
 
-  color: #00f2ff;
-  letter-spacing: 0px;
+.streaming-text {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #FF1801;
 }
 
 .hint {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.65rem;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
-/* --- MOBILE OPTIMIZATION --- */
-@media screen and (max-width: 480px) {
+/* --- MOBILE FIXES --- */
+@media (max-width: 480px) {
   .container {
-    width: 95%;     
-    padding: 20px; 
-    border-radius: 15px; 
+    width: 100%;
+    padding: 30px;
   }
-
-  .shimmer {
-    font-size: 1.8rem; 
-    margin-bottom: 20px;
-  }
-
-  textarea {
-    height: 140px;   
-    font-size: 1rem; 
-    padding: 15px;
-  }
-
-  #morseInput {
-    font-size: 1.2rem; 
-    letter-spacing: 3px;
-  }
+  .shimmer { font-size: 1.2rem; }
+  textarea { height: 120px; }
 }
